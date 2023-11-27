@@ -1,0 +1,71 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// User model
+model User {
+  user_id             Int             @id @default(autoincrement())
+  user_type           String?
+  name                String
+  email               String               @unique
+  password            String
+  TraineeApplications TraineeApplication[] // Opposite relation
+  // SubmissionApprovals SubmissionApproval[] // Opposite relation
+  // Logbooks            Logbook[] // Opposite relation
+}
+
+// Submission Approval model
+// model SubmissionApproval {
+//   approval_id        Int                  @id @default(autoincrement())
+//   form_id            Int
+//   supervisor_id      Int
+//   approval_status    String
+//   User               User                 @relation(fields: [supervisor_id], references: [user_id], onDelete: Cascade)
+//   TraineeApplication TraineeApplication[]
+// }
+
+// Trainee Application model
+model TraineeApplication {
+  application_id     Int    @id @default(autoincrement())
+  trainee_id         Int
+  //   supervisor_id      Int
+  //   institution_id     Int
+  application_status String
+  //   date               DateTime
+  User               User   @relation(fields: [trainee_id], references: [user_id], onDelete: Cascade)
+  //   Institution        Institution          @relation(fields: [institution_id], references: [institution_id])
+  //   SubmissionApproval SubmissionApproval[] // Opposite relation
+  //   Logbooks           Logbook[] // Opposite relation
+}
+
+// // Institution model
+// model Institution {
+//   institution_id      Int                  @id @default(autoincrement())
+//   institution_name    String
+//   address             String
+//   branch              String
+//   TraineeApplications TraineeApplication[] // Opposite relation
+// }
+
+// // Logbook model
+// model Logbook {
+//   form_id                    Int                @id @default(autoincrement())
+//   trainee_id                 Int
+//   date                       DateTime
+//   doctor_id                  Int
+//   patient_name               String
+//   patient_record_number      String
+//   diagnosis_aid_examinations String
+//   follow_up                  String
+//   medical_history_record     String
+//   patient_updates            String
+//   personal_reflections       String
+//   submission_status          String
+//   User                       User               @relation(fields: [trainee_id], references: [user_id], onDelete: Cascade)
+//   TraineeApplication         TraineeApplication @relation(fields: [form_id], references: [application_id])
+// }
