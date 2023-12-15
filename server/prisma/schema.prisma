@@ -1,3 +1,6 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -7,65 +10,43 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// User model
+model Hospital {
+  id            Int    @id @default(autoincrement())
+  hospital_name String
+  address       String
+  Branch        String
+
+  users User[]
+}
+
 model User {
-  user_id             Int             @id @default(autoincrement())
-  user_type           String?
-  name                String
-  email               String               @unique
-  password            String
-  TraineeApplications TraineeApplication[] // Opposite relation
-  // SubmissionApprovals SubmissionApproval[] // Opposite relation
-  // Logbooks            Logbook[] // Opposite relation
+  id          Int    @id @default(autoincrement())
+  hospital_id Int
+  user_type   String
+  name        String
+  email       String @unique
+  password    String
+
+  logbooks Logbook[]
+
+  hospital Hospital @relation(fields: [hospital_id], references: [id])
 }
 
-// Submission Approval model
-// model SubmissionApproval {
-//   approval_id        Int                  @id @default(autoincrement())
-//   form_id            Int
-//   supervisor_id      Int
-//   approval_status    String
-//   User               User                 @relation(fields: [supervisor_id], references: [user_id], onDelete: Cascade)
-//   TraineeApplication TraineeApplication[]
-// }
+model Logbook {
+  form_id              Int      @id @default(autoincrement())
+  doctor_id            Int
+  trainee_id           Int
+  patient_record_id    Int
+  date                 DateTime
+  patient_name         String
+  diagnosis_details    String
+  procedures           String
+  follow_up            String
+  history              String
+  updates              String
+  personal_reflections String
+  approval_status      Boolean  @default(false)
+  submitted_to         Int
 
-// Trainee Application model
-model TraineeApplication {
-  application_id     Int    @id @default(autoincrement())
-  trainee_id         Int
-  //   supervisor_id      Int
-  //   institution_id     Int
-  application_status String
-  //   date               DateTime
-  User               User   @relation(fields: [trainee_id], references: [user_id], onDelete: Cascade)
-  //   Institution        Institution          @relation(fields: [institution_id], references: [institution_id])
-  //   SubmissionApproval SubmissionApproval[] // Opposite relation
-  //   Logbooks           Logbook[] // Opposite relation
+  user User @relation(fields: [trainee_id], references: [id])
 }
-
-// // Institution model
-// model Institution {
-//   institution_id      Int                  @id @default(autoincrement())
-//   institution_name    String
-//   address             String
-//   branch              String
-//   TraineeApplications TraineeApplication[] // Opposite relation
-// }
-
-// // Logbook model
-// model Logbook {
-//   form_id                    Int                @id @default(autoincrement())
-//   trainee_id                 Int
-//   date                       DateTime
-//   doctor_id                  Int
-//   patient_name               String
-//   patient_record_number      String
-//   diagnosis_aid_examinations String
-//   follow_up                  String
-//   medical_history_record     String
-//   patient_updates            String
-//   personal_reflections       String
-//   submission_status          String
-//   User                       User               @relation(fields: [trainee_id], references: [user_id], onDelete: Cascade)
-//   TraineeApplication         TraineeApplication @relation(fields: [form_id], references: [application_id])
-// }
