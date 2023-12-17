@@ -1,0 +1,168 @@
+User dummy data ===============================================
+
+[
+  {
+    "user_type": "admin",
+    "hospital_id": 1,
+    "name": "Sadee",
+    "email": "skrohan333@gmail.com",
+    "password": "421"
+  },
+  {
+    "user_type": "Trainee",
+    "hospital_id": 1,
+    "name": "roahn",
+    "email": "skrohan332@gmail.com",
+    "password": "422"
+  }
+]
+
+
+
+hospital dummy data ==================================
+[
+    
+        {
+  "id": 1,            
+  "hospital_name":"CBMC" 
+  "address":"Road to Paradise"       
+  "Branch":"Main"        
+},
+
+ {
+  "id": 2,            
+  "hospital_name":"MMcH" 
+  "address":"Road to Paradise2"       
+  "Branch":"Main"        
+},
+    
+]
+
+
+
+Logbook dummy data=====================
+
+
+[
+  {
+    "doctor_id": 10,
+    "trainee_id": 10,
+    "patient_record_id": 123,
+    "date": "2023-12-15T08:00:00Z",
+    "patient_name": "John Doe",
+    "diagnosis_details": "Lorem ipsum diagnosis 1",
+    "procedures": "Lorem ipsum procedures 1",
+    "follow_up": "Follow-up instructions 1",
+    "history": "Medical history details 1",
+    "updates": "Recent updates on patient 1",
+    "personal_reflections": "Personal reflections 1",
+    "approval_status": false,
+    "submitted_to": 8
+  },
+  {
+    "doctor_id": 11,
+    "trainee_id": 11,
+    "patient_record_id": 456,
+    "date": "2023-12-16T10:30:00Z",
+    "patient_name": "Jane Smith",
+    "diagnosis_details": "Lorem ipsum diagnosis 2",
+    "procedures": "Lorem ipsum procedures 2",
+    "follow_up": "Follow-up instructions 2",
+    "history": "Medical history details 2",
+    "updates": "Recent updates on patient 2",
+    "personal_reflections": "Personal reflections 2",
+    "approval_status": false,
+    "submitted_to": 8
+  },
+  {
+    "doctor_id": 11,
+    "trainee_id": 11,
+    "patient_record_id": 789,
+    "date": "2023-12-17T14:15:00Z",
+    "patient_name": "Alice Johnson",
+    "diagnosis_details": "Lorem ipsum diagnosis 3",
+    "procedures": "Lorem ipsum procedures 3",
+    "follow_up": "Follow-up instructions 3",
+    "history": "Medical history details 3",
+    "updates": "Recent updates on patient 3",
+    "personal_reflections": "Personal reflections 3",
+    "approval_status": false,
+    "submitted_to": 9
+  },
+  {
+    "doctor_id": 11,
+    "trainee_id": 11,
+    "patient_record_id": 1011,
+    "date": "2023-12-18T16:45:00Z",
+    "patient_name": "Bob Miller",
+    "diagnosis_details": "Lorem ipsum diagnosis 4",
+    "procedures": "Lorem ipsum procedures 4",
+    "follow_up": "Follow-up instructions 4",
+    "history": "Medical history details 4",
+    "updates": "Recent updates on patient 4",
+    "personal_reflections": "Personal reflections 4",
+    "approval_status": false,
+    "submitted_to": 9
+  },
+  {
+    "doctor_id": 10,
+    "trainee_id": 10,
+    "patient_record_id": 1213,
+    "date": "2023-12-19T09:30:00Z",
+    "patient_name": "Eva White",
+    "diagnosis_details": "Lorem ipsum diagnosis 5",
+    "procedures": "Lorem ipsum procedures 5",
+    "follow_up": "Follow-up instructions 5",
+    "history": "Medical history details 5",
+    "updates": "Recent updates on patient 5",
+    "personal_reflections": "Personal reflections 5",
+    "approval_status": false,
+    "submitted_to": 8
+  },
+  {
+    "doctor_id": 10,
+    "trainee_id": 10,
+    "patient_record_id": 1415,
+    "date": "2023-12-20T11:00:00Z",
+    "patient_name": "Sam Brown",
+    "diagnosis_details": "Lorem ipsum diagnosis 6",
+    "procedures": "Lorem ipsum procedures 6",
+    "follow_up": "Follow-up instructions 6",
+    "history": "Medical history details 6",
+    "updates": "Recent updates on patient 6",
+    "personal_reflections": "Personal reflections 6",
+    "approval_status": false,
+    "submitted_to": 9
+  }
+]
+
+
+
+All data dummy model =================================================
+
+
+[
+  {
+    id: 1,
+    hospital_name:"lorem ipsum",
+    address:"Lorem ipsum",
+    Branch:"Lorem ipsum",
+    tarinee_count: 6,
+    supervisor_count: 2,
+    supervisors:[
+      {
+        id: 2,
+        supervisor_name:"Sadee",
+        trainees: [
+          tarinee_id: 2,
+          tarinee_name:"Rohan",
+          logs:[
+            patient_record_id: 6,
+            diagnosis_details:"lorem ipsum",
+            approval_status: true
+          ]
+        ]
+      }
+    ]
+  }
+]

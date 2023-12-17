@@ -1,82 +1,72 @@
 import prisma from "../config/db.config.js";
 
-
-
-// export const authenticateUser = async (req, res) => {
-
-//     try {
-//         const user = await prisma.user.findFirst({
-//             where: {
-//                 email: Number(req.body.email),
-//                 password: req.body.password
-//             },
-//         })
-//         return res.json({ status: 200, data: user });
-//     } catch (error) {
-//         res.status(500).json({ success: false, error });
-//     }
-// };
-
-
-
-// export const showUser = async (req, res) => {
-
-//     try {
-//         const userId = req.params.id;
-//         const user = await prisma.user.findFirst({
-//             where: {
-//                 user_id: Number(userId),
-//             },
-//         })
-//         return res.json({ status: 200, data: user });
-//     } catch (error) {
-//         res.status(500).json({ success: false, error });
-
-//     }
-// };
-
-
-
 export const createHospitals = async (req, res) => {
-    try {
-        const newUser = await prisma.hospital.createMany({
-            data: req.body,
-        });
-        res.json({ success: true, user: newUser });
-    } catch (error) {
-        res.status(500).json({ success: false, error });
-    }
+  try {
+    const newUser = await prisma.hospital.createMany({
+      data: req.body,
+    });
+    res.json({ success: true, user: newUser });
+  } catch (error) {
+    res.status(500).json({ success: false, error });
+  }
+};
 
-}
+export const findMasterDataForAdmin = async (req, res) => {
+  try {
+    const hospitalsWithCounts = await prisma.hospital.findMany({
+      include: {
+        users: {
+          include: {
+            logbooks: {
+              include: {
+                user: true,
+              },
+            },
+          },
+        },
+      },
+    });
 
+    const formattedData = hospitalsWithCounts.map((hospital) => {
+      const trainees = hospital.users.filter(
+        (user) => user.user_type === "trainee"
+      );
+      const supervisors = hospital.users.filter(
+        (user) => user.user_type === "supervisor"
+      );
 
-// export const updateUser = async (req, res) => {
-//     const userID = req.params.user_id
-//     const { name, email, password } = req.body
+    
+      return {
+        id: hospital.id,
+        hospital_name: hospital.hospital_name,
+        address: hospital.address,
+        Branch: hospital.Branch,
+        trainee_count: trainees.length,
+        supervisor_count: supervisors.length,
+        supervisors: supervisors.map((supervisor) => {
+          return {
+            id: supervisor.id,
+            supervisor_name: supervisor.name,
+          };
+        }),
+        trainees: trainees.map((trainee) => {
+          return {
+            id: trainee.id,
+            trainee_name: trainee.name,
+            logbooks: trainee.logbooks.map((logbook)=>{
+                return {
+                    patient_record_id: logbook.patient_record_id,
+                    diagnosis_details: logbook.diagnosis_details,
+                    approval_status: logbook.approval_status
+                }
+            })
+          };
+        }),
+      };
+    });
 
-//     await prisma.user.update({
-//         where: {
-//             user_id: userID
-//         },
-//         data: {
-//             name: name,
-//             email: email,
-//             password: password
-//         }
-
-//     })
-//     return res.json({
-//         status: 400,
-//         message: "User Details Updated"
-//     })
-
-// }
-// //Fetch Users from Database
-
-// export const fetchUsers = async (req, res) => {
-//     const allUser = await prisma.user.findMany({
-//         include: { TraineeApplications: true }
-//     });
-//     res.status(200).json({ success: false, data: allUser })
-// }
-
+    return res.json({ success: true, data: formattedData });
+  } catch (error) {
+    res.status(500).json({ success: false, error });
+  }
+};
