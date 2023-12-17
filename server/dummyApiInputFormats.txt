@@ -166,3 +166,92 @@ All data dummy model =================================================
     ]
   }
 ]
+
+
+
+Put================================================================
+http://localhost:8080/logbook/logbook-approval/2
+body json: {
+  "approval_status": true
+}
+
+
+post ==========================================
+
+
+http://localhost:8080/logbook/daily-log
+
+  {
+    "doctor_id": 11,
+    "trainee_id": 11,
+    "patient_record_id": 1416,
+    "date": "2023-12-20T11:00:00Z",
+    "patient_name": "Sam Brown",
+    "diagnosis_details": "Lorem ipsum diagnosis 6",
+    "procedures": "Lorem ipsum procedures 6",
+    "follow_up": "Follow-up instructions 6",
+    "history": "Medical history details 6",
+    "updates": "Recent updates on patient 6",
+    "personal_reflections": "Personal reflections 6",
+    "approval_status": false,
+    "submitted_to": 8
+  }
+
+  ----------------------------------
+
+http://localhost:8080/users/create-users
+
+[
+  {
+    "user_type": "supervisor",
+    "hospital_id": 1,
+    "name": "Sup3",
+    "email": "cbc343@gmail.com",
+    "password": "302"
+  }
+]
+
+----------------------------------
+
+http://localhost:8080/hospitals/create-hospitals
+
+[
+  {
+    "hospital_name": "CBMC",
+    "address": "Road to Paradise",
+    "Branch": "Main"
+  },
+  {
+    "hospital_name": "MMcH",
+    "address": "Road to Paradise2",
+    "Branch": "Main"
+  }
+]
+
+
+Get =================================================
+
+http://localhost:8080/hospitals/admin-data
+
+--------------------------------------------
+
+http://localhost:8080/logbook/trainee-submissions/8
+
+---------------------------------------------
+
+http://localhost:8080/logbook/submissions/10
+
+----------------------------------------------------
+
+http://localhost:8080/users/supervisors
+
+
+
+
+
+Put=================================================
+http://localhost:8080/logbook/logbook-approval/2
+
+{
+  "approval_status": true
+}
