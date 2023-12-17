@@ -5,6 +5,10 @@ const TranieeSub = () => {
 
     const [tranieeSubmissions, setTranieeSubmissions] = useState([]);
 
+    let isApproved = false;
+
+   
+
 
     useEffect(() => {
         fetch('TranieeSub.json')
@@ -31,6 +35,7 @@ const TranieeSub = () => {
                                     <th>History</th>
                                     <th>Doctor's Reflection</th>
                                     <th>Date</th>
+                                    <th>Status</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -44,6 +49,20 @@ const TranieeSub = () => {
                                         <td>{submission.medicalHistoryUpdates}</td>
                                         <td>{submission.personalReflections}</td>
                                         <td>{submission.timeOfSubmission}</td>
+                                        <td>
+                                            {
+
+                                                isApproved? <>
+
+                                                <button>Approved</button>
+                                                </>
+                                                :
+                                                <>
+                                                <button className='border rounded p-1 bg-blue-600 text-white'>Pending</button>
+                                                </>
+
+                                            }
+                                        </td>
                                     </tr>
                                 ))}
                             </tbody>
