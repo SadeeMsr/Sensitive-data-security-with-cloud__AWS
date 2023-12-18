@@ -23,7 +23,7 @@ const LogBook = () => {
 
 
         const newSubmission = { DoctorID, PatientName, PatientRecordNumber, Date, DiagnosisAndTreatment, ProceduresAndExaminations, FollowUpPlans, MedicalHistoryUpdates, PersonalReflections }
-        console.log(newSubmission);
+
     }
     return (
         <div>
@@ -33,11 +33,9 @@ const LogBook = () => {
 
             <div className="hero min-h-screen  w-full bg-base-200">
                 <div className="hero-content flex-col">
-                    <div className="text-center lg:text-left">
-                        <h1 className="text-5xl font-bold">Log Submission</h1>
-                    </div>
                     <div className="card flex-shrink-0 w-full shadow-2xl bg-base-100">
                         <form onSubmit={handleLogBook} className="card-body">
+                            <h1 className="text-5xl font-semibold text-center mb-4">Log Book</h1>
                             <div className="form-control flex-col lg:flex-row gap-2 justify-center">
                                 <label className="label">
                                     <span className="label-text">Doctor's ID:</span>
