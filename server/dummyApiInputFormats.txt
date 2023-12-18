@@ -199,6 +199,12 @@ http://localhost:8080/logbook/daily-log
 
   ----------------------------------
 
+
+Get
+
+http://localhost:8080/log-in  
+
+
 http://localhost:8080/users/create-users
 
 [
