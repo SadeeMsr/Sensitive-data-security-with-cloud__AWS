@@ -2,7 +2,7 @@ import prisma from "../config/db.config.js";
 
 export const createLog = async (req, res) => {
   try {
-    const newUser = await prisma.logbook.create({
+    const newUser = await prisma.logbook.createMany({
       data: req.body,
     });
     res.json({ success: true, user: newUser });
