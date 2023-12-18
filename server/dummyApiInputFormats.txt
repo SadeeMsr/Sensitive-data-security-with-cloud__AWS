@@ -169,6 +169,31 @@ All data dummy model =================================================
 
 
 
+
+
+
+
+
+
+
+
+
+
+PORT = "8080"
+
+
+ENCRYPTION_KEY=8b61e69f2c34e78bfa308a492ca3e47b70a859da877dbee18105446ee8eca361
+
+
+
+
+
+
+
+
+
+
+
 Put================================================================
 http://localhost:8080/logbook/logbook-approval/2
 body json: {
