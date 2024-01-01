@@ -1,5 +1,9 @@
 # Logbook Management System
 ![Picture1](https://github.com/SadeeMsr/mbbs-doctor-logbook-monitoring-app/assets/76898633/32f256bc-0257-4a4e-8bf1-a806401503de)
+*Figure 1: Architecture for Local Dev Environment* 
+
+![final-project-diagram](https://github.com/SadeeMsr/mbbs-doctor-logbook-monitoring-app/assets/76898633/b3f1a73e-6ef0-4959-b765-2cb52c4b2e79)
+*Figure 2: AWS Deployment Diagram* 
 
 ## Table of Contents
 - [Installation](#installation)
