@@ -1,4 +1,4 @@
-import prisma from "../config/db.config.js";
+import prisma from "../Config/db.config.js";
 
 export const createHospitals = async (req, res) => {
   try {

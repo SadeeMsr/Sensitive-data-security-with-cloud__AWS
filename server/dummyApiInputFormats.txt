@@ -286,3 +286,66 @@ http://localhost:8080/logbook/logbook-approval/2
 {
   "approval_status": true
 }
+
+
+//================================================================================================================
+============================================================================================================================
+
+Linux API Commands:
+
+
+Creating users------------------
+http://localhost:8080/users/create-users
+
+curl -X POST \
+  http://10.0.0.76:8080/users/create-users \
+  -H 'Content-Type: application/json' \
+  -d '[
+  {
+    "user_type": "trainee",
+    "hospital_id": 3,
+    "name": "I am trainee",
+    "email": "cbc34346@gmail.com",
+    "password": "3056"
+  }
+]'
+
+
+
+creating hospitals-------------------------------------
+
+curl -X POST \
+  http://10.0.0.76:8080/hospitals/create-hospitals \
+  -H 'Content-Type: application/json' \
+  -d '[
+  {
+    "hospital_name": "BMCH",
+    "address": "Road to Paradise",
+    "Branch": "Barisal"
+  }
+]'
+
+
+
+curl -X POST \
+  http://10.0.0.76:8080/logbook/daily-log \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "doctor_id": 3,
+    "trainee_id": 3,
+    "patient_record_id": 1450,
+    "date": "2023-12-20T11:00:00Z",
+    "patient_name": "Sam Brown",
+    "diagnosis_details": "Lorem ipsum diagnosis 6",
+    "procedures": "Lorem ipsum procedures 6",
+    "follow_up": "Follow-up instructions 6",
+    "history": "Medical history details 6",
+    "updates": "Recent updates on patient 6",
+    "personal_reflections": "Personal reflections 6",
+    "approval_status": false,
+    "submitted_to": 1
+  }'
+
+
+  curl -X GET http://10.0.0.76:8080/logbook/submissions/2
+

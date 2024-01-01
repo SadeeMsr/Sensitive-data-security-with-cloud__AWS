@@ -17,6 +17,7 @@ export const encrypt = (text) => {
   return iv.toString('hex')+"="+encrypted ;
 };
 
+
 // Decrypt function
 export const decrypt = (hash) => {
   const decipher = crypto.createDecipheriv(algorithm, Buffer.from(key), Buffer.from(hash.iv, 'hex'));

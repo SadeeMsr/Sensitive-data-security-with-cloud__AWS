@@ -1,5 +1,5 @@
 import { decrypt, encrypt } from "../Crypto-lib/crypto.js";
-import prisma from "../config/db.config.js";
+import prisma from "../Config/db.config.js";
 
 export const authenticateUser = async (req, res) => {
   try {
@@ -61,6 +61,9 @@ export const findSupervisors = async (req, res) => {
 //   console.log(req.body)
 
 //   const hash = encrypt(JSON.stringify(email))
+
+
+
 
 //   const hashSplited = splitHash(hash)
 

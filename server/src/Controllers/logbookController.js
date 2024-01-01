@@ -1,9 +1,12 @@
-import prisma from "../config/db.config.js";
+import prisma from "../Config/db.config.js";
+import { decryptObjectFields, encryptObjectFields } from "../Crypto-lib/encryt-decryptObj.js";
+
 
 export const createLog = async (req, res) => {
+  const encryptedLog = encryptObjectFields(req.body)
   try {
-    const newUser = await prisma.logbook.createMany({
-      data: req.body,
+    const newUser = await prisma.logbook.create({
+      data: encryptedLog,
     });
     res.json({ success: true, user: newUser });
   } catch (error) {
@@ -13,12 +16,15 @@ export const createLog = async (req, res) => {
 
 export const findSubmissions = async (req, res) => {
   try {
-    const newUser = await prisma.logbook.findMany({
+    const submissions = await prisma.logbook.findMany({
       where: {
         trainee_id: Number(req.params.traineeID),
       },
     });
-    res.json({ success: true, user: newUser });
+    
+    const sub = decryptObjectFields(submissions)
+ 
+    res.json({ success: true, submissions: sub });
   } catch (error) {
     res.status(500).json({ success: false, error });
   }
