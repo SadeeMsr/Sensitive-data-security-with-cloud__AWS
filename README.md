@@ -6,8 +6,8 @@
 *Figure 2: AWS Deployment Diagram* 
 
 ## Table of Contents
-- [Installation](#installation)
 - [Project Introduction](#ProjectIntroduction)
+- [Installation](#installation)
 - [API Endpoints](#api-endpoints)
 
 ## Project Introduction
@@ -28,40 +28,63 @@ This project tried to solve the pressing need to enhance data security and monit
 2. **Clone the repository:**
    ```bash
    git clone https://github.com/SadeeMsr/mbbs-doctor-logbook-monitoring-app
+   
    //Front-end installation commands
+   
    cd client
    npm install
    npm run dev
 
    //Backend installation commands
+   
    cd server
    npm install
+   npx prisma migrate dev
    npm run watch
    
 ## API Endpoints
 ### Products
-- Create a product
+- Log in
   (Method: POST, 
-  Endpoint: `/products` , 
-  Handler: createProduct)
+  Endpoint: `/log-in` , 
+  Handler: authenticationRouter)
   
-- Fetch All Products
+- Create an Users
+  (Method: POST, 
+  Endpoint: `/users/create-users` , 
+  Handler: createUser)
+  
+- Fetch All Supervisors
   (Method: GET, 
- Endpoint: `/products`, 
+ Endpoint: `/users/supervisors`, 
  Handler: fetchProducts)
 
-- Fetch a Product by ID
+- Create a Hospitals
+  (Method: POST, 
+ Endpoint: `/hospitals/create-hospitals` , 
+ Handler: findMasterDataForAdmin)
+
+- Fetch Admin data
   (Method: GET, 
- Endpoint: `/products/:id` , 
- Handler: fetchProducts)
-
-
- - Update a Product by ID
-  (Method: PUT, 
- Endpoint:` /products/:id`, 
+ Endpoint:`/hospitals/admin-data`, 
  Handler: updateProduct)
 
-  - Delete a Product by ID
-  (Method: DELETE, 
- Endpoint: `/products/:id`, 
- Handler: deleteProduct)
+- Create a Daily Log
+  (Method: POST, 
+ Endpoint: `/logbook/daily-log` , 
+ Handler: createLog)
+
+- Fetch my Submissions
+  (Method: GET, 
+ Endpoint: `/logbook/submissions/:traineeID` , 
+ Handler: findSubmissions)
+
+- Fetch trainee submissions accroding per supervisor
+  (Method: GET, 
+ Endpoint: `/logbook/trainee-submissions/:supervisorID` , 
+ Handler: findSubmissionsBySupervisor)
+
+- Approve a Daily log
+  (Method: PUT, 
+ Endpoint: `/logbook/logbook-approval/:formID` , 
+ Handler: updateApprovalStatus)
