@@ -1,0 +1,43 @@
+[
+    {
+      "id": 1,
+      "trainerName": "Dr. Smith",
+      "numberOfTrainees": 3,
+      "hospitalName": "City General Hospital",
+      "hospitalLocation": "Cityville, State",
+      "numberOfTotalPatients": 500
+    },
+    {
+      "id": 2,
+      "trainerName": "Dr. Johnson",
+      "numberOfTrainees": 2,
+      "hospitalName": "Community Medical Center",
+      "hospitalLocation": "Townsville, State",
+      "numberOfTotalPatients": 300
+    },
+    {
+      "id": 3,
+      "trainerName": "Dr. Davis",
+      "numberOfTrainees": 1,
+      "hospitalName": "Regional Health Center",
+      "hospitalLocation": "Villagetown, State",
+      "numberOfTotalPatients": 200
+    },
+    {
+      "id": 4,
+      "trainerName": "Dr. Brown",
+      "numberOfTrainees": 4,
+      "hospitalName": "Metropolitan Hospital",
+      "hospitalLocation": "Citymetropolis, State",
+      "numberOfTotalPatients": 1000
+    },
+    {
+      "id": 5,
+      "trainerName": "Dr. Wilson",
+      "numberOfTrainees": 2,
+      "hospitalName": "Suburban Health Clinic",
+      "hospitalLocation": "Suburbville, State",
+      "numberOfTotalPatients": 400
+    }
+  ]
+  
