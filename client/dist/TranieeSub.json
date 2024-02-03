@@ -1,0 +1,122 @@
+[
+    {
+        "id": 1,
+        "patientName": "John Doe",
+        "timeOfSubmission": "2023-11-11T10:30:00",
+        "patientID": "P123456",
+        "diagnosisAndTreatment": "Common cold, prescribed rest and fluids.",
+        "proceduresAndExaminations": "Physical examination, no further tests needed.",
+        "followUpPlans": "Follow-up appointment in one week.",
+        "medicalHistoryUpdates": "No significant changes.",
+        "personalReflections": "Patient seemed responsive to treatment.",
+        "doctorID": 1
+    },
+    {
+        "id": 2,
+        "patientName": "Jane Smith",
+        "timeOfSubmission": "2023-11-11T14:45:00",
+        "patientID": "P789012",
+        "diagnosisAndTreatment": "Sprained ankle, advised RICE (Rest, Ice, Compression, Elevation).",
+        "proceduresAndExaminations": "Orthopedic examination, X-ray performed.",
+        "followUpPlans": "Orthopedic follow-up in two weeks.",
+        "medicalHistoryUpdates": "No changes to medication.",
+        "personalReflections": "Case referred to orthopedic specialist.",
+        "doctorID": 12
+    },
+    {
+        "id": 3,
+        "patientName": "Alice Johnson",
+        "timeOfSubmission": "2023-11-12T09:15:00",
+        "patientID": "P654321",
+        "diagnosisAndTreatment": "Migraine, prescribed pain relievers.",
+        "proceduresAndExaminations": "Neurological examination, no abnormalities found.",
+        "followUpPlans": "Follow-up if symptoms persist.",
+        "medicalHistoryUpdates": "Patient reported occasional migraines in the past.",
+        "personalReflections": "Provided migraine prevention tips.",
+        "doctorID": 17
+    },
+    {
+        "id": 4,
+        "patientName": "Robert Williams",
+        "timeOfSubmission": "2023-11-12T15:20:00",
+        "patientID": "P234567",
+        "diagnosisAndTreatment": "Hypertension, prescribed antihypertensive medication.",
+        "proceduresAndExaminations": "Blood pressure measurement, elevated readings.",
+        "followUpPlans": "Regular blood pressure monitoring, follow-up in one month.",
+        "medicalHistoryUpdates": "New diagnosis of hypertension.",
+        "personalReflections": "Discussed lifestyle changes for managing hypertension.",
+        "doctorID": 9
+    },
+    {
+        "id": 5,
+        "patientName": "Eva Brown",
+        "timeOfSubmission": "2023-11-13T11:10:00",
+        "patientID": "P876543",
+        "diagnosisAndTreatment": "Stomach flu, advised hydration and rest.",
+        "proceduresAndExaminations": "Gastrointestinal examination, no further tests needed.",
+        "followUpPlans": "Follow-up if symptoms worsen or persist.",
+        "medicalHistoryUpdates": "No significant changes.",
+        "personalReflections": "Patient appeared anxious, provided reassurance.",
+        "doctorID": 16
+    },
+    {
+        "id": 6,
+        "patientName": "John Doe",
+        "timeOfSubmission": "2023-11-11T10:30:00",
+        "patientID": "P123456",
+        "diagnosisAndTreatment": "Common cold, prescribed rest and fluids.",
+        "proceduresAndExaminations": "Physical examination, no further tests needed.",
+        "followUpPlans": "Follow-up appointment in one week.",
+        "medicalHistoryUpdates": "No significant changes.",
+        "personalReflections": "Patient seemed responsive to treatment.",
+        "doctorID": 221
+    },
+    {
+        "id": 7,
+        "patientName": "Jane Smith",
+        "timeOfSubmission": "2023-11-11T14:45:00",
+        "patientID": "P789012",
+        "diagnosisAndTreatment": "Sprained ankle, advised RICE (Rest, Ice, Compression, Elevation).",
+        "proceduresAndExaminations": "Orthopedic examination, X-ray performed.",
+        "followUpPlans": "Orthopedic follow-up in two weeks.",
+        "medicalHistoryUpdates": "No changes to medication.",
+        "personalReflections": "Case referred to orthopedic specialist.",
+        "doctorID": 145
+    },
+    {
+        "id": 8,
+        "patientName": "Alice Johnson",
+        "timeOfSubmission": "2023-11-12T09:15:00",
+        "patientID": "P654321",
+        "diagnosisAndTreatment": "Migraine, prescribed pain relievers.",
+        "proceduresAndExaminations": "Neurological examination, no abnormalities found.",
+        "followUpPlans": "Follow-up if symptoms persist.",
+        "medicalHistoryUpdates": "Patient reported occasional migraines in the past.",
+        "personalReflections": "Provided migraine prevention tips.",
+        "doctorID": 174
+    },
+    {
+        "id": 9,
+        "patientName": "Robert Williams",
+        "timeOfSubmission": "2023-11-12T15:20:00",
+        "patientID": "P234567",
+        "diagnosisAndTreatment": "Hypertension, prescribed antihypertensive medication.",
+        "proceduresAndExaminations": "Blood pressure measurement, elevated readings.",
+        "followUpPlans": "Regular blood pressure monitoring, follow-up in one month.",
+        "medicalHistoryUpdates": "New diagnosis of hypertension.",
+        "personalReflections": "Discussed lifestyle changes for managing hypertension.",
+        "doctorID": 412
+    },
+    {
+        "id": 10,
+        "patientName": "Eva Brown",
+        "timeOfSubmission": "2023-11-13T11:10:00",
+        "patientID": "P876543",
+        "diagnosisAndTreatment": "Stomach flu, advised hydration and rest.",
+        "proceduresAndExaminations": "Gastrointestinal examination, no further tests needed.",
+        "followUpPlans": "Follow-up if symptoms worsen or persist.",
+        "medicalHistoryUpdates": "No significant changes.",
+        "personalReflections": "Patient appeared anxious, provided reassurance.",
+        "doctorID": 124
+    }
+]

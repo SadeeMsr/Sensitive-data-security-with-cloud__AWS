@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "patientName": "John Doe",
+    "timeOfSubmission": "2023-11-11T10:30:00",
+    "patientID": "P123456",
+    "diagnosisAndTreatment": "Common cold, prescribed rest and fluids.",
+    "proceduresAndExaminations": "Physical examination, no further tests needed.",
+    "followUpPlans": "Follow-up appointment in one week.",
+    "medicalHistoryUpdates": "No significant changes.",
+    "personalReflections": "Patient seemed responsive to treatment."
+  },
+  {
+    "id": 2,
+    "patientName": "Jane Smith",
+    "timeOfSubmission": "2023-11-11T14:45:00",
+    "patientID": "P789012",
+    "diagnosisAndTreatment": "Sprained ankle, advised RICE (Rest, Ice, Compression, Elevation).",
+    "proceduresAndExaminations": "Orthopedic examination, X-ray performed.",
+    "followUpPlans": "Orthopedic follow-up in two weeks.",
+    "medicalHistoryUpdates": "No changes to medication.",
+    "personalReflections": "Case referred to orthopedic specialist."
+  },
+  {
+    "id": 3,
+    "patientName": "Alice Johnson",
+    "timeOfSubmission": "2023-11-12T09:15:00",
+    "patientID": "P654321",
+    "diagnosisAndTreatment": "Migraine, prescribed pain relievers.",
+    "proceduresAndExaminations": "Neurological examination, no abnormalities found.",
+    "followUpPlans": "Follow-up if symptoms persist.",
+    "medicalHistoryUpdates": "Patient reported occasional migraines in the past.",
+    "personalReflections": "Provided migraine prevention tips."
+  },
+  {
+    "id": 4,
+    "patientName": "Robert Williams",
+    "timeOfSubmission": "2023-11-12T15:20:00",
+    "patientID": "P234567",
+    "diagnosisAndTreatment": "Hypertension, prescribed antihypertensive medication.",
+    "proceduresAndExaminations": "Blood pressure measurement, elevated readings.",
+    "followUpPlans": "Regular blood pressure monitoring, follow-up in one month.",
+    "medicalHistoryUpdates": "New diagnosis of hypertension.",
+    "personalReflections": "Discussed lifestyle changes for managing hypertension."
+  },
+  {
+    "id": 5,
+    "patientName": "Eva Brown",
+    "timeOfSubmission": "2023-11-13T11:10:00",
+    "patientID": "P876543",
+    "diagnosisAndTreatment": "Eva Brown presented with symptoms consistent with gastroenteritis, commonly known as stomach flu. Following a thorough examination, the diagnosis was confirmed, revealing inflammation of the stomach and intestines. To address the condition, a comprehensive treatment plan was recommended. Eva was advised to prioritize hydration to replenish lost fluids and support the recovery process. Rest was strongly recommended to allow the body's immune system to combat the viral infection effectively. Additionally, to alleviate symptoms, Eva was prescribed an antiviral medication, such as oseltamivir, known to mitigate the severity and duration of the illness. The overall approach aimed to provide both relief from immediate discomfort and support for a swift recovery.",
+    "proceduresAndExaminations": "Gastrointestinal examination, no further tests needed.",
+    "followUpPlans": "Follow-up if symptoms worsen or persist.",
+    "medicalHistoryUpdates": "No significant changes.",
+    "personalReflections": "During the consultation, it was evident that Eva Brown was experiencing heightened anxiety, likely stemming from the discomfort associated with her gastroenteritis diagnosis. In response, the healthcare provider took a compassionate approach, acknowledging and addressing Eva's concerns. Reassurance was provided, emphasizing the transient nature of the symptoms and the effectiveness of the prescribed treatment plan. The healthcare provider also took the time to answer any questions Eva had, ensuring she felt informed and supported throughout the medical encounter. The empathetic reassurance aimed to alleviate Eva's anxiety, fostering a sense of confidence in her path to recovery."
+  }
+]
