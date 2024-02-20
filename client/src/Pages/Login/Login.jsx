@@ -1,13 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useApiQuery } from '../../server/api';
 
 
 const Login = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('')
 
 
-
-    const handleLogin = () => {
-
-        window.location.href = '/logbook';
+    const handleLogin = (e) => {
+        e.preventDefault()
+        let dt = {
+        email:email,
+        password:password
+        }
+        console.log(dt);
+        useApiQuery.login(dt).then((res)=>{
+            console.log(res);
+            //if success then uncomment the next line else give error message
+            // window.location.href = '/logbook';
+        });
+        
 
     };
     return (
@@ -22,17 +34,17 @@ const Login = () => {
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="email" placeholder="email" name='email' className="input input-bordered" required />
+                            <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="email" name='email' className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" placeholder="password" name='password' className="input input-bordered" required />
+                            <input value={password} onChange={(e) =>setPassword(e.target.value)} type="password" placeholder="password" name='password' className="input input-bordered" required />
                         </div>
                         <div className="form-control mt-6">
 
-                            <button className="btn btn-primary" onClick={handleLogin}>LogIn
+                            <button className="btn btn-primary" onClick={(e) => handleLogin(e)}>LogIn
                             </button>
                         </div>
                     </form>
