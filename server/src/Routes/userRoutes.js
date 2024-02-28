@@ -1,11 +1,11 @@
 import { Router } from "express";
-import { createUser, findSupervisors} from "../Controllers/userController.js";
+import { createUser, findUserSymmetricKey} from "../Controllers/userController.js";
 
 
 const router = Router()
 
 router.post("/create-users", createUser)
-router.get("/supervisors", findSupervisors)
+router.get("/find-key/:userID", findUserSymmetricKey)
 
 
 export default router;

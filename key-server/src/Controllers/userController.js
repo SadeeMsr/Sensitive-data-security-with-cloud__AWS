@@ -1,5 +1,13 @@
-import { decrypt, encrypt } from "../Crypto-lib/crypto.js";
 import prisma from "../Config/db.config.js";
+
+import { decrypt, encrypt, encryptSymmetricKeyWithPublicKey, generateAsymmetricKeyPair, generateSymmetricKey } from "../Crypto-lib/crypto.js";
+
+
+import axios from "axios"
+const cloudServerUrl = 'http://localhost:5000/user/create-users';
+
+
+
 
 export const authenticateUser = async (req, res) => {
   try {
@@ -21,31 +29,26 @@ export const authenticateUser = async (req, res) => {
   }
 };
 
+
 export const createUser = async (req, res) => {
+
+  const { publicKey, privateKey } = generateAsymmetricKeyPair()
+  const  SymmetricKeyForAES = generateSymmetricKey().toString('hex')
+  const EncryptedSymmetricKeyForAES = encryptSymmetricKeyWithPublicKey(publicKey, SymmetricKeyForAES).toString('hex')
+
   try {
     const newUser = await prisma.user.create({
-      data: req.body,
+      data: {...req.body, publicKey, privateKey, symmetricKey:SymmetricKeyForAES},
     });
-    res.json({ success: true, user: newUser, msg: "New user created!" });
-  } catch (error) {
-    res.status(500).json({ success: false, error });
-  }
-};
+    
+    const newUserCloud = await axios.post(cloudServerUrl, {...req.body, EncryptedSymmetricKey:EncryptedSymmetricKeyForAES})
+  
+    res.json({ success: true, cloudResponse: newUserCloud.data, localResponse: newUser, msg: "New user created!" });
 
-export const findUserSymmetricKey = async (req, res) => {
-  try {
-    const formKey = await prisma.user.findUnique({
-      where: {
-        id: Number(req.params.userID),
-      },
-      select: {
-        EncryptedSymmetricKey: true,
-      },
-    });
-    res.json({ success: true, formKey:formKey.EncryptedSymmetricKey });
   } catch (error) {
     res.status(500).json({ success: false, error });
   }
+  
 };
 
 

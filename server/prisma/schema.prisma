@@ -7,46 +7,32 @@ generator client {
 
 datasource db {
   provider = "sqlite"
-  url      = "file:./dev.db"
-}
-
-model Hospital {
-  id            Int    @id @default(autoincrement())
-  hospital_name String
-  address       String
-  Branch        String
-
-  users User[]
+  url      = "file:./cloud.db"
 }
 
 model User {
-  id          Int    @id @default(autoincrement())
-  hospital_id Int
-  user_type   String
-  name        String
-  email       String @unique
-  password    String
+  id Int @id @default(autoincrement())
+  user_type    String
+  name         String
+  email        String  @unique
+  password     String
+  EncryptedSymmetricKey String? @unique
 
   logbooks Logbook[]
-
-  hospital Hospital @relation(fields: [hospital_id], references: [id])
 }
+
 
 model Logbook {
   form_id              Int      @id @default(autoincrement())
-  doctor_id            Int
-  trainee_id           Int
-  patient_record_id    Int
+  employeeId           Int
   date                 DateTime
   patient_name         String
-  diagnosis_details    String
-  procedures           String
-  follow_up            String
-  history              String
-  updates              String
-  personal_reflections String
-  approval_status      Boolean  @default(false)
-  submitted_to         Int
+  diagnosis_details    String?
+  procedures           String?
+  follow_up            String?
+  history              String?
+  updates              String?
+  personal_reflections String?
 
-  user User @relation(fields: [trainee_id], references: [id])
+  user User @relation(fields: [employeeId], references: [id])
 }

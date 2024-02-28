@@ -10,7 +10,7 @@ dotenv.config();
 
 import app from"./app.js"
 
-const PORT = process.env.PORT || 8090;
+const PORT = process.env.PORT || 8000;
 
 
 const server = http.createServer(app);

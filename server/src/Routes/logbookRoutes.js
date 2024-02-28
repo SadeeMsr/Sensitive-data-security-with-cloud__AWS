@@ -1,11 +1,11 @@
 import { Router } from "express";
-import { createLog, findSubmissions, findSubmissionsBySupervisor, updateApprovalStatus } from "../Controllers/logbookController.js";
+import { createLog, findDiagnosisDetails, updateDiagnosisDetails } from "../Controllers/logbookController.js";
 
 const router = Router();
 
-router.post("/daily-log", createLog);
-router.get("/submissions/:traineeID", findSubmissions);
-router.get("/trainee-submissions/:supervisorID", findSubmissionsBySupervisor);
-router.put("/logbook-approval/:formID", updateApprovalStatus);
+router.post("/create-patient", createLog);
+router.get("/find-diagnosis/:form_id", findDiagnosisDetails);
+router.put("/update-diagnosis", updateDiagnosisDetails);
+
 
 export default router;

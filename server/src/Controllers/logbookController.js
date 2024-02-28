@@ -3,10 +3,9 @@ import { decryptObjectFields, encryptObjectFields } from "../Crypto-lib/encryt-d
 
 
 export const createLog = async (req, res) => {
-  const encryptedLog = encryptObjectFields(req.body)
   try {
     const newUser = await prisma.logbook.create({
-      data: encryptedLog,
+      data: req.body,
     });
     res.json({ success: true, user: newUser });
   } catch (error) {
@@ -14,34 +13,51 @@ export const createLog = async (req, res) => {
   }
 };
 
-export const findSubmissions = async (req, res) => {
+export const findDiagnosisDetails = async (req, res) => {
+
+  console.log(req.params)
+
   try {
-    const submissions = await prisma.logbook.findMany({
+    const diagnosis = await prisma.logbook.findUnique({
       where: {
-        trainee_id: Number(req.params.traineeID),
+        form_id: Number(req.params.form_id),
+      },
+      select: {
+        diagnosis_details: true,
       },
     });
-    
-    const sub = decryptObjectFields(submissions)
- 
-    res.json({ success: true, submissions: sub });
+
+    console.log(diagnosis)
+    res.json({ success: true, diagnosis_details:diagnosis.diagnosis_details });
   } catch (error) {
     res.status(500).json({ success: false, error });
   }
 };
 
-export const findSubmissionsBySupervisor = async (req, res) => {
+
+export const updateDiagnosisDetails = async (req, res) => {
+
+  console.log(req.body)
+
   try {
-    const newUser = await prisma.logbook.findMany({
+    await prisma.logbook.update({
       where: {
-        submitted_to: Number(req.params.supervisorID),
+        form_id: Number(req.body.form_id),
+      },
+      data: {
+        diagnosis_details: req.body.diagnosis_details
       },
     });
-    res.json({ success: true, user: newUser });
+    res.json({
+      status: 400,
+      message: "User Details Updated",
+    });
+
   } catch (error) {
     res.status(500).json({ success: false, error });
   }
 };
+
 
 export const updateApprovalStatus = async (req, res) => {
 
